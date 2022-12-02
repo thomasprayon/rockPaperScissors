@@ -1,49 +1,57 @@
 console.log('attached script to attached to HTML file');
 
 const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
-const counterPlayer = 0;
-const counterComputer = 0;
+const computerSelection = getComputerChoice();
+let playerSelection;
+let counterPlayer = 0;
+let counterComputer = 0;
 
+// Computer choice by making a random number between 0 a 1. An accessing through bracket notation.
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3 + 1);
-    // console.log(rockPaperScissors[randomNumber - 1]);
     return rockPaperScissors[randomNumber - 1];
 }
-
-getComputerChoice();
-
-function playRound(playerSelection, computerSelection) {
+function getPlayerChoice() {
+    playerSelection = prompt('Paper, Rock or Scissors?');
     if (
-        (playerSelection == 'Paper' && computerSelection == 'Rock') ||
-        (computerSelection == 'Paper' && playerSelection == 'Rock')
+        playerSelection == null ||
+        playerSelection == undefined ||
+        playerSelection == ''
     ) {
-        console.log(`Paper win against Rock`);
-        console.log(
-            `Player choose: ${playerSelection} vs. Computer choose: ${computerSelection}`
-        );
-    } else if (
-        (playerSelection == 'Rock' && computerSelection == 'Scissors') ||
-        (computerSelection == 'Rock' && computerSelection == 'Scissors')
-    ) {
-        console.log('Rock win against Scissors');
-        console.log(
-            `Player choose: ${playerSelection} vs. Computer choose: ${computerSelection}`
-        );
-    } else if (
-        (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
-        (playerSelection == 'Paper' && computerSelection == 'Scissors')
-    ) {
-        console.log('Scissors win against Paper');
-        console.log(
-            `Player choose: ${playerSelection} vs. Computer choose: ${computerSelection}`
-        );
+        alert('Please choose Paper, Rock or Scissors!!');
     } else {
         console.log(
-            `DRAW: Player choose: ${playerSelection} vs. Computer choose: ${computerSelection}`
+            'Player correcting word:',
+            playerSelection[0].toUpperCase() +
+                playerSelection.slice(1).toLowerCase()
+        );
+        return (
+            playerSelection[0].toUpperCase() +
+            playerSelection.slice(1).toLowerCase()
         );
     }
 }
-const playerSelection = prompt('Paper, Rock or Scissors?');
-const computerSelection = getComputerChoice();
 
-playRound(playerSelection, computerSelection);
+// console.log('Computer choose:', getComputerChoice());
+// console.log('Player choose:', getPlayerChoice());
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return console.log(
+            `DRAW: Computer choose ${computerSelection} and Player choose ${playerSelection}`
+        );
+    } else if (
+        (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Paper' && playerSelection == 'Rock') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Paper')
+    ) {
+        counterComputer++;
+        return console.log(`Computer WIN: ${counterComputer}`);
+    } else {
+        playerSelection++;
+        return console.log(`Player WIN: ${counterPlayer}`);
+    }
+}
+
+// playRound(getPlayerChoice(), computerSelection);
+// console.log(`Computer: ${counterComputer} vs Player: ${counterPlayer}`);

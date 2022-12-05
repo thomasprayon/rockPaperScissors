@@ -1,10 +1,19 @@
-console.log('attached script to attached to HTML file');
-
+// Variables
 const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
 const computerSelection = getComputerChoice();
 let playerSelection;
 let counterPlayer = 0;
 let counterComputer = 0;
+
+// Event listener for the images: rock, paper and scissors
+const imgs = document.querySelectorAll('#playerImg');
+
+imgs.forEach((img) => {
+    img.addEventListener('click', () => {
+        console.log('Img:', img);
+        console.log('Event happening!');
+    });
+});
 
 // Computer choice by making a random number between 0 a 1. An accessing through bracket notation.
 function getComputerChoice() {

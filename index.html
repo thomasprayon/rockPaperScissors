@@ -8,19 +8,37 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Choose: Rock, Paper or Scissors</h1>
-        <section class="player-container">
-            <h3>Player: <span>0</span></h3>
-            <img src="/images/rock.svg" alt="Rock" id="playerImg" />
-            <img src="/images/paper.svg" alt="Paper" id="playerImg" />
-            <img src="/images/scissors.svg" alt="Scissors" id="playerImg" />
-        </section>
-        <section class="computer-container">
-            <h3>Computer: <span>0</span></h3>
-            <img src="/images/rock.svg" alt="Rock" />
-            <img src="/images/paper.svg" alt="Paper" />
-            <img src="/images/scissors.svg" alt="Scissors" />
-        </section>
+        <main>
+            <h1>Rock Paper Scissors</h1>
+
+            <section class="player-container">
+                <button class="player rock"></button>
+                <button class="player paper"></button>
+                <button class="player scissors"></button>
+            </section>
+
+            <section class="computer-container">
+                <div class="computer-choose">
+                    <img
+                        src="/images/question.svg"
+                        alt="Question mark"
+                        class="start-computer"
+                    />
+                </div>
+                <div class="result-container">
+                    <h4>Round: <span id="roundPlay">0</span></h4>
+                    <h4>
+                        Player: <span id="playerScore">0</span> vs. Computer:
+                        <span id="computerScore">0</span>
+                    </h4>
+                    <h4>
+                        Computer choose: <span id="computerChoose">None</span>
+                    </h4>
+                    <h4 id="result"></h4>
+                </div>
+                <button class="hidden">New Game</button>
+            </section>
+        </main>
         <script src="script.js"></script>
     </body>
 </html>

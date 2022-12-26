@@ -1,20 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: aquamarine;
-}
+
 main {
     width: 100vw;
     height: 100vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
+    background-color: #7a3b69;
+}
+/* HEADER */
+.header-title {
+    display: flex;
+    width: inherit;
+    height: 100px;
+    color: #cfcfcd;
+    background-color: #563440;
+    justify-content: center;
+    border-bottom: 5px solid black;
+}
+.title {
+    font-size: 26px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 25px;
+}
+.img-initial {
+    width: 120px;
+    height: auto;
 }
 
-.player-container {
+/* SELECTED WEAPON*/
+.selected-container {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 350px;
+    border: 3px solid black;
+}
+
+/* BUTTONS CONTAINER */
+.choose-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -22,14 +52,23 @@ main {
     height: 150px;
     width: 350px;
 }
-
-.computer-container {
+/* RESULT CONTAINER */
+.result-container {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
     height: 150px;
     width: 350px;
     border: 3px solid black;
+}
+.result-player,
+.result-computer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .start-computer {
@@ -38,15 +77,6 @@ main {
     background-color: transparent;
 }
 
-/* button {
-    background: transparent;
-    text-align: center;
-    outline: 0;
-    height: auto;
-    width: 100px;
-    border-radius: 10px;
-    border: 0;
-} */
 .paper {
     background-image: url(/images/paper.svg);
 }
@@ -56,6 +86,7 @@ main {
 .scissors {
     background-image: url(/images/scissors.svg);
 }
+
 .player {
     background-size: contain;
     background-repeat: no-repeat;
@@ -63,12 +94,15 @@ main {
     width: 100px;
     height: 100px;
 }
+
 .choosen {
     border: 2px solid gold;
 }
+
 .hidden {
     display: none;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -80,12 +114,14 @@ main {
     background-color: rgb(0, 0, 0);
     opacity: 0.6;
 }
+
 .modal-content {
     width: 50%;
     margin: 15% auto;
     padding: 20px;
     background-color: #fefefe;
 }
+
 .active {
     display: block;
 }

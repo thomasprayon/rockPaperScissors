@@ -9,38 +9,43 @@
     </head>
     <body>
         <main>
-            <h1>Rock Paper Scissors</h1>
-
-            <section class="player-container">
+            <header class="header-title">
+                <h1 class="title">Rock Paper Scissors</h1>
+            </header>
+            <section class="selected-container">
+                <img
+                    src="/images/question.svg"
+                    alt="Question-Player"
+                    class="img-initial"
+                    id="playerChoose"
+                />
+                <img
+                    src="/images/question.svg"
+                    alt="Question-Computer"
+                    class="img-initial"
+                    id="computerChoose"
+                />
+            </section>
+            <section class="choose-container">
                 <button class="player rock"></button>
                 <button class="player paper"></button>
                 <button class="player scissors"></button>
             </section>
-
-            <section class="computer-container">
-                <div class="computer-choose">
-                    <img
-                        src="/images/question.svg"
-                        alt="Question mark"
-                        class="start-computer"
-                    />
+            <section class="result-container">
+                <div class="result-player">
+                    <h2>Player</h2>
+                    <h2><span id="playerScore">0</span></h2>
                 </div>
-                <div class="result-container">
-                    <h4>Round: <span id="roundPlay">0</span></h4>
-                    <h4>
-                        Player: <span id="playerScore">0</span> vs. Computer:
-                        <span id="computerScore">0</span>
-                    </h4>
-                    <h4>
-                        Computer choose: <span id="computerChoose">None</span>
-                    </h4>
-                    <h4 id="result"></h4>
+                <div class="result-computer">
+                    <h2>Computer</h2>
+                    <h2><span id="computerScore">0</span></h2>
                 </div>
+                <h4 id="result"></h4>
             </section>
             <div class="modal">
                 <div class="modal-content">
-                    <h3 id="endMessage"></h3>
-                    <button class="btn-restart hidden" id="restartBtn">
+                    <h3 id="finalMessage"></h3>
+                    <button class="btn-restart" id="restartBtn">
                         New Game
                     </button>
                 </div>

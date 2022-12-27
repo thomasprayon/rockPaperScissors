@@ -20,11 +20,12 @@ main {
 /* HEADER */
 .header-title {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: inherit;
     height: 100px;
     color: #cfcfcd;
     background-color: #563440;
-    justify-content: center;
     border-bottom: 5px solid black;
 }
 .title {
@@ -156,4 +157,35 @@ main {
 }
 #finalMessage {
     font-family: inherit;
+}
+
+@media (max-width: 320px) {
+    body {
+        width: 320px;
+    }
+    header {
+        width: inherit;
+    }
+    .title {
+        font-size: 32px;
+        padding: 0;
+    }
+    main {
+        width: inherit;
+        margin: 0;
+        gap: 5px;
+    }
+    .selected-container {
+        margin-top: 10px;
+    }
+    .selected-container,
+    .choose-container,
+    .result-container,
+    .message-result {
+        width: 90%;
+    }
+    .player {
+        width: 80px;
+        height: 80px;
+    }
 }

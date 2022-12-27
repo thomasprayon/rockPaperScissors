@@ -116,28 +116,74 @@
 // playGame();
 
 // ROCK PAPER SCISSORS
-
 // Variables
 const computerSelected = document.querySelector('#computerChoose');
 const playerSelected = document.querySelector('#playerChoose');
 const playerScore = document.querySelector('#playerScore');
 const computerScore = document.querySelector('#computerScore');
+const buttons = document.querySelectorAll('button');
 let initialPlayerScore = 0;
 let initialComputerScore = 0;
+let playerSelection;
 
+// Computer choice
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
+    let pickedChoice = '';
     console.log(randomNumber);
     switch (randomNumber) {
         case 1:
-            return console.log('Rock');
-
+            pickedChoice = 'rock';
+            break;
         case 2:
-            return console.log('Paper');
-
+            pickedChoice = 'paper';
+            break;
         case 3:
-            return console.log('Scissors');
+            pickedChoice = 'scissors';
+            break;
+    }
+    computerSelected.src = `/images/${pickedChoice}.svg`;
+}
+
+//Play round
+function playRound(playerSelection, computerSelection) {
+    //Draw
+    if (playerSelection === computerSelection) {
+        console.log('Draw');
+    }
+    // Player Selection
+    if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')
+    ) {
+        console.log('Player Win');
+    }
+    // Computer Selection
+    if (
+        (computerSelection === 'rock' && playerSelection === 'scissors') ||
+        (computerSelection === 'paper' && playerSelection === 'rock') ||
+        (computerSelection === 'scissors' && playerSelection === 'paper')
+    ) {
+        console.log('Computer Win');
     }
 }
 
-getComputerChoice();
+//Player choice
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        if (e.target.className === 'player rock') {
+            playerSelection = 'rock';
+            playerSelected.src = `/images/rock.svg`;
+        }
+        if (e.target.className === 'player paper') {
+            playerSelection = 'paper';
+            playerSelected.src = `/images/paper.svg`;
+        }
+        if (e.target.className === 'player scissors') {
+            playerSelection = 'scissors';
+            playerSelected.src = `/images/scissors.svg`;
+        }
+        playRound(playerSelection, getComputerChoice());
+    });
+});
